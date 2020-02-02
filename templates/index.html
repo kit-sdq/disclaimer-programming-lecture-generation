@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<header>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<style>
+.error {
+  color: red;
+}
+.container-fluid {
+  max-width: 600px;
+}
+.vcenter {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  min-height: 100vh;
+}
+</style>
+</header>
+<body>
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script>
+  $(function() {
+    $("#disclaimer").validate({
+      rules : {
+        name : {
+          required : true,
+          maxlength : 40
+        },
+        matricno : {
+          required : true,
+          digits : true,
+          maxlength : 10
+        }
+      },
+
+      messages : {
+        name : {
+          required : "Vor- und Nachname ist erforderlich",
+          maxlength : "Dieses Feld ist auf 40 Zeichen beschränkt"
+        },
+        matricno : {
+          required : "Die Matrikelnummer ist erforderlich",
+          digits : "Nur Ziffern sind erlaubt",
+          maxlength : "Dieses Feld ist auf 10 Zeichen beschränkt"
+        }
+      },
+
+      submitHandler : function(form) {
+        form.submit();
+      }
+    });
+  });
+</script>
+<div class="container-fluid vcenter">
+  <div class="panel panel-default">
+    <div class="panel-heading">Einverständniserklärung für die Teilnahme am Programmieren-Übungsbetrieb</div>
+    <div class="panel-body">
+      <div class="well">
+        Die Teilnahme am Programmieren-Übungsbetrieb erfordert Ihr ausdrückliches
+        Einverständnis mit einigen Regelungen. <strong>Ihre
+          personalisierte Einverständniserklärung können Sie hier
+          erzeugen</strong>, drucken und unterschrieben in den <i>Programmieren-Briefkasten</i>
+        einwerfen: 1. UG, Geb. 50.34, direkt neben der Wendeltreppe.
+      </div>
+      <form action="disclaimer/output" method="post" accept-charset="UTF-8"
+        role="form" id="disclaimer" novalidate="novalidate">
+        <div class="form-group .col-md-4">
+          <label for="name">Vor- und Nachname:</label> <input
+            type="text" name="name" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="matricno">Matrikelnummer:</label> <input
+            type="text" name="matricno" class="form-control">
+        </div>
+        <div class="form-group">
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <button type="submit" value="Einverständniserklärung erzeugen"
+            class="btn btn-default">
+            <i class="glyphicon glyphicon-file" aria-hidden="true"></i>Einverständniserklärung
+            herunterladen (PDF)
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
