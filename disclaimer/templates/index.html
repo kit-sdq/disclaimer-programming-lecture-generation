@@ -3,7 +3,7 @@
 <header>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <meta charset="UTF-8"> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 <style>
 .error {
   color: red;
@@ -20,8 +20,8 @@
 </style>
 </header>
 <body>
-<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.jsm.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.validate.min.js') }}"></script>
 <script>
   $(function() {
     $("#disclaimer").validate({
@@ -66,7 +66,7 @@
           erzeugen</strong>, drucken und unterschrieben in den <i>Programmieren-Briefkasten</i>
         einwerfen: 1. UG, Geb. 50.34, direkt neben der Wendeltreppe.
       </div>
-      <form action="disclaimer/output" method="post" accept-charset="UTF-8"
+      <form action="output" method="post" accept-charset="UTF-8"
         role="form" id="disclaimer" novalidate="novalidate">
         <div class="form-group .col-md-4">
           <label for="name">Vor- und Nachname:</label> <input
@@ -80,7 +80,7 @@
           <input name="utf8" type="hidden" value="&#x2713;" />
           <button type="submit" value="Einverständniserklärung erzeugen"
             class="btn btn-default">
-            <i class="glyphicon glyphicon-file" aria-hidden="true"></i>Einverständniserklärung
+            <i aria-hidden="true"></i>Einverständniserklärung
             herunterladen (PDF)
           </button>
         </div>
