@@ -46,8 +46,8 @@ def generate_pdf():
     return response
 
 def generate_qr_string(data):
-
-    data['hash'] = sha256(b"test").hexdigest()
+    preHash = data['name'] + data['matricno']
+    data['hash'] = sha256(preHash.encode("utf-8")).hexdigest()
     
     qr = qrcode.QRCode(
         version=1,
