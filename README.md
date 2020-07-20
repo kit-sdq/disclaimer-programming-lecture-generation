@@ -1,1 +1,1 @@
-# disclaimer-pyhton
+# disclaimer-python
