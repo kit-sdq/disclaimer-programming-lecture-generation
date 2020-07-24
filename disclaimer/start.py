@@ -10,7 +10,8 @@ from hashlib import sha256
 from io import BytesIO
 from json import dumps
 import  qrcode
-app = Flask(__name__)
+# remove static_url_in testing environment
+app = Flask(__name__, static_url_path='/disclaimer')
 @app.route('/')
 def hello_world():
     return render_template('index.html')
